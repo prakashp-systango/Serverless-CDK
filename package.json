@@ -1,0 +1,28 @@
+{
+  "name": "test-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true, 
+  "workspaces": [
+       "packages/lambda-function", "packages/infrastructure"
+   ], 
+   "scripts": { 
+    "install": "yarn install", 
+    "test": "yarn workspace lambda-function test", 
+    "lint": "yarn workspace lambda-function lint", 
+    "build": "yarn workspace lambda-function build && yarn workspace infrastructure build", 
+    "deploy": "yarn workspace infrastructure deploy",
+    "start":  "yarn workspace lambda-function start"
+   },
+   "engines": { 
+    "node": ">=20.0.0"
+   },
+  "dependencies": {
+    "@aws-cdk/aws-apigateway": "^1.204.0",
+    "@aws-cdk/aws-lambda": "^1.204.0",
+    "aws-cdk": "^2.171.1",
+    "aws-cdk-lib": "^2.171.1",
+    "constructs": "^10.4.2"
+  }
+}

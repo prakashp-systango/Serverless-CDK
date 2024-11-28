@@ -1,0 +1,49 @@
+service: lambda-function
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: us-east-1
+
+functions:
+  hello:
+    handler: src/index.handler
+    events:
+      - http:
+          path: hello
+          method: get
+          request:
+            parameters:
+              querystrings:
+                name: false
+          documentation:
+            summary: "Returns a greeting"
+            queryParams:
+              - name: "name"
+                description: "The name to greet"
+                required: false
+                schema:
+                  type: "string"
+
+plugins:
+  - serverless-auto-swagger
+  - serverless-offline
+
+custom:
+  autoswagger:
+    apiType: http
+    basePath: "/dev"
+    swaggerPath: "api-docs"
+    generateSwaggerOnDeploy: true
+
+  serverless-offline:
+    port: 3000
+    host: localhost
+
+  esbuild:
+    bundle: true
+    minify: false
+    sourcemap: true
+    target: node20
+    platform: node
+    concurrency: 10
