@@ -23,7 +23,7 @@ To test the API locally, follow these steps:
 1. **Run Unit Tests:**
    - Execute the following command to run the tests:
      ```bash
-     yarn test
+     yarn test  or you can run workflow mannually for testing.
      ```
 
 2. **Run ESLint:**

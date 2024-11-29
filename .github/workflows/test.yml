@@ -1,0 +1,29 @@
+name: CI - Test
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Select the branch to run tests on'
+        required: true
+        default: 'master'  # You can set a default branch (e.g., 'master')
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.inputs.branch }}  # Checkout the selected branch
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Run tests
+        run: yarn test
