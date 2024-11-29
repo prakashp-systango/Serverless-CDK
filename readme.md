@@ -23,7 +23,7 @@ To test the API locally, follow these steps:
 1. **Run Unit Tests:**
    - Execute the following command to run the tests:
      ```bash
-     yarn test  or you can run workflow mannually for testing.
+     yarn test  or [you can run workflow mannually for testing](https://github.com/prakashp-systango/Serverless-CDK/actions/workflows/test.yml).
      ```
 
 2. **Run ESLint:**
