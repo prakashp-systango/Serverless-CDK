@@ -8,7 +8,6 @@
        "packages/lambda-function", "packages/infrastructure"
    ], 
    "scripts": { 
-    "install": "yarn install", 
     "test": "yarn workspace lambda-function test", 
     "lint": "yarn workspace lambda-function lint", 
     "build": "yarn workspace lambda-function build && yarn workspace infrastructure build", 
